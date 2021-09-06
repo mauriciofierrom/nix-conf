@@ -74,7 +74,7 @@ in
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
-  
+
 
   # Configure keymap in X11
   # services.xserver.layout = "us";
@@ -106,7 +106,6 @@ in
     cachix
     nvidia-offload
     nix-prefetch-git
-  #   wget
     firefox
     htop
     curl
@@ -117,6 +116,14 @@ in
 
   home-manager.useGlobalPkgs = true;
   home-manager.users.mauricio = { pkgs, ...  }: {
+    # TODO: Failed to change ownership of firefox-old
+    # probably because I installed it globally before
+    # programs.firefox = {
+    #   enable = true;
+    #   package = pkgs.firefox.override {
+    #     cfg.enableGnomeExtensions = true;
+    #   };
+    # };
     # TODO: Check the delta configs, looks neat.
     programs.git = {
       enable = true;
@@ -152,11 +159,11 @@ in
 	size = 10000;
 	path = "/home/mauricio/.zsh_history";
       };
-      
+
       oh-my-zsh = {
         enable = true;
 	plugins = [ "git" "heroku" "pip" "lein" "command-not-found" ];
-      }; 
+      };
 
       zplug = {
         enable = true;
@@ -305,16 +312,16 @@ in
       set splitright
       set cursorline
       set laststatus=2
-      
+
       " Load indentation rules and plugins according to the detected filetype.
       if has("autocmd")
         filetype plugin indent on
       endif
-      
+
       if (has("termguicolors"))
         set termguicolors
       endif
-      
+
       " Move to split buffers, even on terminal mode
       nnoremap <C-J> <C-W><C-J>
       nnoremap <C-K> <C-W><C-K>
@@ -329,12 +336,12 @@ in
       nnoremap <A-j> <C-w>j
       nnoremap <A-k> <C-w>k
       nnoremap <A-l> <C-w>l
-      
+
       " Jump to definition using tags
       map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
       map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
       map <Leader>gs :Gstatus<CR>
-      
+
       " Lua config
       lua << EOF
         require("trouble").setup {
@@ -343,23 +350,23 @@ in
           -- refer to the configuration section below
         }
       EOF
-      
+
       lua << EOF
       -- require'lspconfig'.hls.setup{}
       local nvim_lsp = require('lspconfig')
-      
+
       -- Use an on_attach function to only map the following keys
       -- after the language server attaches to the current buffer
       local on_attach = function(client, bufnr)
         local function buf_set_keymap(...) vim.api.nvim_buf_set_keymap(bufnr, ...) end
         local function buf_set_option(...) vim.api.nvim_buf_set_option(bufnr, ...) end
-      
+
         --Enable completion triggered by <c-x><c-o>
         buf_set_option('omnifunc', 'v:lua.vim.lsp.omnifunc')
-      
+
         -- Mappings.
         local opts = { noremap=true, silent=true }
-      
+
         -- See `:help vim.lsp.*` for documentation on any of the below functions
         buf_set_keymap('n', 'gD', '<Cmd>lua vim.lsp.buf.declaration()<CR>', opts)
         buf_set_keymap('n', 'gd', '<Cmd>lua vim.lsp.buf.definition()<CR>', opts)
@@ -378,9 +385,9 @@ in
         buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
         buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
         buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-      
+
       end
-      
+
       -- Use a loop to conveniently call 'setup' on multiple servers and
       -- map buffer local keybindings when the language server attaches
       local servers = { "hls", "purescriptls" }
@@ -400,8 +407,8 @@ in
         cmd = { "haskell-language-server", "--lsp" }
       }
       EOF
-      
-      
+
+
       lua << EOF
       -- Trouble keybindings
       vim.api.nvim_set_keymap("n", "<leader>xx", "<cmd>Trouble<cr>",
@@ -423,7 +430,7 @@ in
         {silent = true, noremap = true}
       )
       EOF
-      
+
       lua << EOF
         require("todo-comments").setup {
           -- your configuration comes here
