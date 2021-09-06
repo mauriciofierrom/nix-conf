@@ -117,6 +117,7 @@ in
     gnome.gnome-tweaks
     vlc
     xclip
+    xprop
   ];
   programs.steam.enable = true;
 
