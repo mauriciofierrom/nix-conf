@@ -124,6 +124,7 @@ in
     #     cfg.enableGnomeExtensions = true;
     #   };
     # };
+    programs.direnv.enable = true;
     # TODO: Check the delta configs, looks neat.
     programs.git = {
       enable = true;
@@ -140,6 +141,7 @@ in
       enableAutosuggestions = true;
       enableCompletion = true;
       #enableSyntaxHighlighting = true;
+      initExtra = ''eval "$(direnv hook bash)"'';
       dirHashes = {
 	haskell = "$HOME/projects/haskell";
 	software = "$HOME/Software";
