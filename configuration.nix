@@ -115,6 +115,7 @@ in
     curl
     gnome.gnome-tweaks
     vlc
+    xclip
   ];
   programs.steam.enable = true;
 
@@ -140,6 +141,33 @@ in
       };
     };
     programs.ssh.enable = true;
+    programs.tmux = {
+      enable = true;
+      prefix = "C-y";
+      terminal = "xterm-256color";
+      escapeTime = 0;
+      tmuxinator.enable = true;
+      keyMode = "vi";
+      plugins = with pkgs.tmuxPlugins; [
+        gruvbox
+        yank
+        vim-tmux-navigator
+      ];
+      extraConfig = ''
+        # Select text using v
+        bind-key -T copy-mode-vi 'v' send -X begin-selection
+
+        # Yank text using y
+        bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
+
+        # Get bottom split
+        bind-key -n C-a splitw -v -p 25
+
+        # Disable status bar
+        set -g status off
+      '';
+    };
+
     programs.zsh = {
       enable = true;
       enableAutosuggestions = true;
