@@ -186,104 +186,104 @@ in
       enable = true;
       package = pkgs.neovim-nightly;
       plugins = let
-	lightline-gruvbox = pkgs.vimUtils.buildVimPlugin {
-          name = "lightline-gruvbox.vim";
-          src = pkgs.fetchFromGitHub {
-            owner = "sinchu";
-            repo = "lightline-gruvbox.vim";
-            rev = "21659af1fc980ebe7de0f475e57c3fda9a82c2d3";
-            sha256 = "0h9br1r5vbrx5cplnk34xlg1kagasj3zn18f8d4ifi0pibyq6pm1";
-          };
+      lightline-gruvbox = pkgs.vimUtils.buildVimPlugin {
+        name = "lightline-gruvbox.vim";
+        src = pkgs.fetchFromGitHub {
+          owner = "sinchu";
+          repo = "lightline-gruvbox.vim";
+          rev = "21659af1fc980ebe7de0f475e57c3fda9a82c2d3";
+          sha256 = "0h9br1r5vbrx5cplnk34xlg1kagasj3zn18f8d4ifi0pibyq6pm1";
         };
-	vim-tmux-navigator = pkgs.vimUtils.buildVimPlugin {
-          name = "vim-tmux-navigator";
-          src = pkgs.fetchFromGitHub {
-            owner = "christoomey";
-            repo = "vim-tmux-navigator";
-            rev = "0cabb1ef01af0986b7bf6fb7acf631debdbbb470";
-            sha256 = "0xxc5wpyfqv7f7sfy6xncy7ipj0cvshw28s12ld3jfgyimjllr62";
-          };
+      };
+      vim-tmux-navigator = pkgs.vimUtils.buildVimPlugin {
+        name = "vim-tmux-navigator";
+        src = pkgs.fetchFromGitHub {
+          owner = "christoomey";
+          repo = "vim-tmux-navigator";
+          rev = "0cabb1ef01af0986b7bf6fb7acf631debdbbb470";
+          sha256 = "0xxc5wpyfqv7f7sfy6xncy7ipj0cvshw28s12ld3jfgyimjllr62";
         };
-	fugitive = pkgs.vimUtils.buildVimPlugin {
-          name = "vim-fugitive";
-          src = pkgs.fetchFromGitHub {
-            owner = "tpope";
-            repo = "vim-fugitive";
-            rev = "2a53d7924877b38b3d82fba188fd9053bfbc646e";
-            sha256 = "17zafl9bj7szfzadwl245dhv5s4f14bcipksir95kw7h2lcwxxmx";
-          };
+      };
+      fugitive = pkgs.vimUtils.buildVimPlugin {
+        name = "vim-fugitive";
+        src = pkgs.fetchFromGitHub {
+          owner = "tpope";
+          repo = "vim-fugitive";
+          rev = "2a53d7924877b38b3d82fba188fd9053bfbc646e";
+          sha256 = "17zafl9bj7szfzadwl245dhv5s4f14bcipksir95kw7h2lcwxxmx";
         };
+      };
       in with pkgs.vimPlugins; [
-	# TODO: Use gruvbox-nvim for treesitter support
-	{ plugin = ack-vim;
-	  config = ''
-	    let g:ackprg = 'ag --vimgrep --ignore tags'
-	  '';
-	}
-	{ plugin = camelcasemotion;
-	  config = ''
-	    map <silent> w <Plug>CamelCaseMotion_w
-	    map <silent> b <Plug>CamelCaseMotion_b
-	    map <silent> e <Plug>CamelCaseMotion_e
-	    sunmap w
-	    sunmap b
-	    sunmap e
-	  '';
-	}
-	ctrlp-vim
-	dhall-vim
-	ghcid
-	gruvbox
-	haskell-vim
-	{ plugin = lightline-vim;
-	  config = ''
-	    let g:lightline = {}
-	    let g:lightline.colorscheme = 'gruvbox'
-	  '';
-	}
-	lsp-colors-nvim
-	nerdtree
-	nvim-lspconfig
-	nvim-web-devicons # TODO: Why both?
-	plenary-nvim
-	purescript-vim
-	{ plugin = supertab;
-	  config = ''
-	  let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
-	  '';
-	}
-	# syntastic TODO: when adding ruby stuff
-	#tlib_vim
-	todo-comments-nvim
-	trouble-nvim
-	#vim-addon-mw-utils
-	vim-better-whitespace
-	vim-commentary
-	vim-devicons # TODO: Why both?
-	fugitive
-	vim-gitgutter
-	vim-javascript
-	vim-jsx-pretty
-	vim-nix
-	#vim-snipmate
-	vim-snippets
-	vim-surround
-	vim-vinegar
-	lightline-gruvbox
-	vim-tmux-navigator
-	{ plugin = vim-markdown;
-	  config = ''
-	  let g:vim_markdown_no_extensions_in_markdown = 1
-	  let g:vim_markdown_preview_hotkey='<C-m>'
-	  let g:vim_markdown_preview_github=1
-	  '';
-	}
-	# TODO: vim-reek isnt in nixos.
+        # TODO: Use gruvbox-nvim for treesitter support
+        { plugin = ack-vim;
+          config = ''
+            let g:ackprg = 'ag --vimgrep --ignore tags'
+          '';
+        }
+        { plugin = camelcasemotion;
+          config = ''
+            map <silent> w <Plug>CamelCaseMotion_w
+            map <silent> b <Plug>CamelCaseMotion_b
+            map <silent> e <Plug>CamelCaseMotion_e
+            sunmap w
+            sunmap b
+            sunmap e
+          '';
+        }
+        ctrlp-vim
+        dhall-vim
+        ghcid
+        gruvbox
+        haskell-vim
+        { plugin = lightline-vim;
+          config = ''
+            let g:lightline = {}
+            let g:lightline.colorscheme = 'gruvbox'
+          '';
+        }
+        lsp-colors-nvim
+        nerdtree
+        nvim-lspconfig
+        nvim-web-devicons # TODO: Why both?
+        plenary-nvim
+        purescript-vim
+        { plugin = supertab;
+          config = ''
+          let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
+          '';
+        }
+        # syntastic TODO: when adding ruby stuff
+        #tlib_vim
+        todo-comments-nvim
+        trouble-nvim
+        #vim-addon-mw-utils
+        vim-better-whitespace
+        vim-commentary
+        vim-devicons # TODO: Why both?
+        fugitive
+        vim-gitgutter
+        vim-javascript
+        vim-jsx-pretty
+        vim-nix
+        #vim-snipmate
+        vim-snippets
+        vim-surround
+        vim-vinegar
+        lightline-gruvbox
+        vim-tmux-navigator
+        { plugin = vim-markdown;
+          config = ''
+          let g:vim_markdown_no_extensions_in_markdown = 1
+          let g:vim_markdown_preview_hotkey='<C-m>'
+          let g:vim_markdown_preview_github=1
+          '';
+        }
+        # TODO: vim-reek isnt in nixos.
       ];
       extraPackages = [
-	pkgs.ack
-	pkgs.git
-	pkgs.ripgrep
+        pkgs.ack
+        pkgs.git
+        pkgs.ripgrep
       ];
       extraConfig = ''
       syntax on
