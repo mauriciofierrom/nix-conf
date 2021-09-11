@@ -396,7 +396,7 @@ in
       " Jump to definition using tags
       map <C-\> :tab split<CR>:exec("tag ".expand("<cword>"))<CR>
       map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
-      map <Leader>gs :Gstatus<CR>
+      map <Leader>gs :Git<CR>
 
       " Lua config
       lua << EOF
