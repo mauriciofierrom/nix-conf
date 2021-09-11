@@ -76,6 +76,7 @@ in
   services.xserver.desktopManager.gnome.enable = true;
 
 
+  services.redis.enable = true;
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
