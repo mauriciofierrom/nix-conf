@@ -279,6 +279,7 @@ in
         }
         ctrlp-vim
         dhall-vim
+        indentLine
         ghcid
         gruvbox
         haskell-vim
