@@ -75,7 +75,6 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
-
   services.redis.enable = true;
 
   services.postgresql = {
@@ -176,11 +175,11 @@ in
         # Select text using v
         bind-key -T copy-mode-vi 'v' send -X begin-selection
 
-        # Yank text using y
-        bind-key -T copy-mode-vi 'y' send -X copy-selection-and-cancel
-
         # Get bottom split
         bind-key -n C-a splitw -v -p 25
+
+        # Allow scrolling with mouse in panes
+        set-option -g mouse on
 
         # Disable status bar
         set -g status off
