@@ -125,12 +125,16 @@ in
     nvidia-offload
     nix-prefetch-git
     firefox
+    silver-searcher
+    chromium
+    tor-browser-bundle-bin
     htop
     curl
     gnome.gnome-tweaks
     vlc
     xclip
-    xprop
+    xsel
+    xorg.xprop
   ];
   programs.steam.enable = true;
 
