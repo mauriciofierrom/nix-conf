@@ -77,6 +77,18 @@ in
 
 
   services.redis.enable = true;
+
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_13;
+    ensureUsers = [
+      { name = "mauricio";
+        ensurePermissions = {
+          "ALL TABLES in SCHEMA public" = "ALL PRIVILEGES";
+        };
+      }
+    ];
+  };
   # Configure keymap in X11
   # services.xserver.layout = "us";
   # services.xserver.xkbOptions = "eurosign:e";
