@@ -397,6 +397,10 @@ in
       map <A-]> :vsp <CR>:exec("tag ".expand("<cword>"))<CR>
       map <Leader>gs :Git<CR>
 
+      " Format on save
+      autocmd BufWritePre *.hs lua vim.lsp.buf.formatting_sync(nil, 1000)
+      autocmd BufWritePre *.purs lua vim.lsp.buf.formatting_sync(nil, 1000)
+
       " Lua config
       lua << EOF
         require("trouble").setup {
@@ -440,7 +444,6 @@ in
         buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
         buf_set_keymap('n', '<space>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
         buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
-
       end
 
       -- Use a loop to conveniently call 'setup' on multiple servers and
