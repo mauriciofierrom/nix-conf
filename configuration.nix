@@ -75,6 +75,7 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  services.lorri.enable = true;
   services.redis.enable = true;
 
   services.postgresql = {
