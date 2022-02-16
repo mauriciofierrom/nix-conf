@@ -7,7 +7,10 @@
   #     cfg.enableGnomeExtensions = true;
   #   };
   # };
-  programs.direnv.enable = true;
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   programs.ssh.enable = true;
   # TODO: Check the delta configs, looks neat.
   programs.git = {
