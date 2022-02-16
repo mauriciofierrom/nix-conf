@@ -80,7 +80,7 @@ in
   services.redis.enable = true;
 
   services.postgresql = {
-    enable = true;
+    enable = false;
     package = pkgs.postgresql_13;
     ensureUsers = [
       { name = "mauricio";
