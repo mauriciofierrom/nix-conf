@@ -72,6 +72,7 @@
     nvim-lspconfig
     nvim-web-devicons # TODO: Why both?
     plenary-nvim
+    vim-elixir
     purescript-vim
     { plugin = supertab;
       config = ''
