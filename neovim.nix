@@ -29,6 +29,15 @@
       sha256 = "17zafl9bj7szfzadwl245dhv5s4f14bcipksir95kw7h2lcwxxmx";
     };
   };
+  vim-syntax-shakespeare = pkgs.vimUtils.buildVimPlugin {
+    name = "vim-syntax-shakespeare";
+    src = pkgs.fetchFromGitHub {
+      owner = "pbrisbin";
+      repo = "vim-syntax-shakespeare";
+      rev = "2f4f61eae55b8f1319ce3a086baf9b5ab57743f3";
+      sha256 = "0h79c3shzf08g7mckc7438vhfmxvzz2amzias92g5yn1xcj9gl5i";
+    };
+  };
   in with pkgs.vimPlugins; [
     # TODO: Use gruvbox-nvim for treesitter support
     { plugin = ack-vim;
@@ -78,6 +87,12 @@
     vim-commentary
     vim-devicons # TODO: Why both?
     fugitive
+    { plugin = vim-syntax-shakespeare;
+      config = ''
+      let g:hamlet_prevent_invalid_nesting = 0
+      let g:hamlet_highlight_trailing_space = 0
+      '';
+    }
     vim-gitgutter
     vim-javascript
     vim-jsx-pretty
