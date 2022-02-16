@@ -136,6 +136,7 @@ in
     xclip
     xsel
     xorg.xprop
+    libreoffice
   ];
   programs.steam.enable = true;
 
