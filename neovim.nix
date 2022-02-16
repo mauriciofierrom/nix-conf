@@ -78,7 +78,16 @@
       let g:SuperTabDefaultCompletionType = '<c-x><c-o>'
       '';
     }
-    # syntastic TODO: when adding ruby stuff
+    {
+      plugin = syntastic;
+      config = ''
+      let g:syntastic_mode_map = { 'mode': 'passive', 'active_filetypes': ['haskell'],'passive_filetypes': [] }
+      let g:syntastic_always_populate_loc_list = 1
+      let g:syntastic_auto_loc_list = 0
+      let g:syntastic_check_on_open = 1
+      let g:syntastic_check_on_wq = 1
+      '';
+    }
     #tlib_vim
     todo-comments-nvim
     trouble-nvim
