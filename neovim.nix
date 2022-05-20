@@ -1,6 +1,5 @@
 { pkgs, ... }: {
   enable = true;
-  package = pkgs.neovim-nightly;
   plugins = let
   lightline-gruvbox = pkgs.vimUtils.buildVimPlugin {
     name = "lightline-gruvbox.vim";
