@@ -2,7 +2,7 @@
 # your system.  Help is available in the configuration.nix(5) man page
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 
-{ config, pkgs, ... }:
+{ config, pkgs, lib, ... }:
 
 let
   nvidia-offload = pkgs.writeShellScriptBin "nvidia-offload" ''
@@ -100,13 +100,8 @@ in
   services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.mauricio = {
-    isNormalUser = true;
-    home = "/home/mauricio";
-    description = "Mauricio Fierro";
-    extraGroups = [ "wheel" "network-manager" ]; # Enable ‘sudo’ for the user.
-    shell = pkgs.zsh;
-  };
+  users.users =
+    (import ./users.nix { inherit pkgs; }) // (import ./users-extra.nix { inherit pkgs; });
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -136,7 +131,8 @@ in
   programs.steam.enable = true;
 
   home-manager.useGlobalPkgs = true;
-  home-manager.users.mauricio = import ./home.nix { inherit pkgs; };
+  home-manager.users =
+    (import ./home.nix { inherit pkgs; }) // (import ./home-extra.nix { inherit pkgs lib; });
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
