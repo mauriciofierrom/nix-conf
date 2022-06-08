@@ -25,7 +25,7 @@ in
     hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
   ];
   nix.binaryCaches = [
-    "https://hydra.iohk.io"
+    "https://cache.iog.io"
   ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
@@ -70,6 +70,10 @@ in
   # Enable the GNOME Desktop Environment.
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
+  services.xserver.windowManager.i3 = {
+    enable = true;
+    package = pkgs.i3-gaps;
+  };
 
   services.lorri.enable = true;
   services.redis.enable = true;
@@ -122,12 +126,15 @@ in
     htop
     curl
     gnome.gnome-tweaks
+    gnome.gnome-keyring
+    displaylink
     vlc
     xclip
     xsel
     xorg.xprop
     libreoffice
   ];
+  services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
 
   home-manager.useGlobalPkgs = true;
@@ -159,6 +166,6 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "21.11"; # Did you read the comment?
 }
 
