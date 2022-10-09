@@ -96,6 +96,7 @@
     vim-commentary
     vim-devicons # TODO: Why both?
     fugitive
+    vim-rhubarb
     { plugin = vim-syntax-shakespeare;
       config = ''
       let g:hamlet_prevent_invalid_nesting = 0
