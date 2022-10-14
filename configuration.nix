@@ -133,6 +133,7 @@ in
     xsel
     xorg.xprop
     libreoffice
+    tldr
   ];
   services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
