@@ -134,6 +134,7 @@ in
     xorg.xprop
     libreoffice
     tldr
+    lsof
   ];
   services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
