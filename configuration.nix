@@ -136,6 +136,7 @@ in
     libreoffice
     tldr
     lsof
+    wireguard-tools
   ];
   services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
@@ -159,7 +160,25 @@ in
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+
+  # Wireguard
+  # networking.firewall.allowedUDPPorts = [ 51820 ];
+
+  # networking.wireguard.interfaces = {
+  #   wg0 = {
+  #     ips = [ "10.6.0.3/24" ];
+  #     listenPort = 51820;
+  #     privateKeyFile = "/home/mauricio/wireguard-keys/private";
+  #     peers = [
+  #       {
+  #         publicKey = "LZvfSlgc7iPftmi7k2KrRrzroigc3ooU6wuGz4xdMDg=";
+  #         allowedIPs = [ "0.0.0.0/0" ];
+  #         endpoint = "";
+  #         persistentKeepalive = 25;
+  #       }
+  #     ];
+  #   };
+  # };
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
