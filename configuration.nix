@@ -20,11 +20,11 @@ in
       ./cachix.nix
       <home-manager/nixos>
     ];
-
-  nix.binaryCachePublicKeys = [
-    hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ=
+  # Binary Cache for Haskell.nix
+  nix.settings.trusted-public-keys = [
+    "hydra.iohk.io:f/Ea+s+dFdN+3Y/G+FDgSq+a5NEWhJGzdjvKNGv0/EQ="
   ];
-  nix.binaryCaches = [
+  nix.settings.substituters = [
     "https://cache.iog.io"
   ];
   nixpkgs.config.allowUnfree = true;
@@ -168,6 +168,6 @@ in
   # this value at the release version of the first install of this system.
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
-  system.stateVersion = "21.05"; # Did you read the comment?
+  system.stateVersion = "22.11"; # Did you read the comment?
 }
 
