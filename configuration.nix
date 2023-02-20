@@ -137,6 +137,7 @@ in
     tldr
     lsof
     wireguard-tools
+    hexchat # until upgrading home-manager to support 22.11
   ];
   services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
