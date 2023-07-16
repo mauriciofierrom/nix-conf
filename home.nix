@@ -1,5 +1,6 @@
 { pkgs, ...}: {
   mauricio = {
+    home.stateVersion = "21.05";
     # TODO: Failed to change ownership of firefox-old
     # probably because I installed it globally before
     # programs.firefox = {
@@ -14,7 +15,6 @@
     };
     programs.ssh.enable = true;
     programs.gpg.enable = true;
-    programs.hexchat.enable = true;
     # TODO: Check the delta configs, looks neat.
     programs.git = {
       enable = true;
