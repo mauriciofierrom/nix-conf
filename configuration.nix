@@ -106,6 +106,8 @@ in
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput.enable = true;
+  # Disable suspend on closing lid
+  # services.logind.lidSwitchExternalPower = "ignore";
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users =
