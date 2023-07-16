@@ -143,6 +143,11 @@ in
     lsof
     wireguard-tools
     hexchat # until upgrading home-manager to support 22.11
+    ngrok
+    discord
+    # ghc-js
+    emscripten
+    nodejs
   ];
   services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
