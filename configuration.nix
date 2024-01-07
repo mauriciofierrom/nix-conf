@@ -27,6 +27,7 @@ in
   nix.settings.substituters = [
     "https://cache.iog.io"
   ];
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
   # Use the systemd-boot EFI boot loader.
