@@ -252,12 +252,15 @@
     buf_set_keymap("n", "<space>f", "<cmd>lua vim.lsp.buf.formatting()<CR>", opts)
   end
 
+  local capabilities = require('cmp_nvim_lsp').default_capabilities()
+
   nvim_lsp["hls"].setup {
     on_attach = on_attach,
     flags = {
       debounce_text_changes = 150,
     },
-    cmd = { "haskell-language-server", "--lsp" }
+    cmd = { "haskell-language-server", "--lsp" },
+    capabilities = capabilities
   }
   EOF
 
@@ -380,12 +383,5 @@
       { name = 'cmdline' }
     })
   })
-
-  -- Set up lspconfig.
-  local capabilities = require('cmp_nvim_lsp').default_capabilities()
-  -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-  require('lspconfig')['hls'].setup {
-    capabilities = capabilities
-  }
   '';
 }
