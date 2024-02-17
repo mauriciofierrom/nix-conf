@@ -150,6 +150,9 @@ in
     emscripten
     nodejs
     android-studio
+    # Doom Emacs
+    fd
+    ripgrep
   ];
   services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
