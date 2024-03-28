@@ -27,7 +27,7 @@ in
   nix.settings.substituters = [
     "https://cache.iog.io"
   ];
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+  nix.settings.experimental-features = [ "nix-command" ];
   nixpkgs.config.allowUnfree = true;
   nixpkgs.config.allowBroken = true;
   # Use the systemd-boot EFI boot loader.
@@ -64,7 +64,7 @@ in
   # Enable the X11 windowing system.
   services.xserver.enable = true;
   services.xserver.xkbOptions = "ctrl:swapcaps";
-  services.xserver.videoDrivers = [ "nvidia" "displaylink" ];
+  services.xserver.videoDrivers = [ "nvidia" ];
 
   hardware.nvidia.prime = {
     offload.enable = true;
@@ -134,7 +134,7 @@ in
     curl
     gnome.gnome-tweaks
     gnome.gnome-keyring
-    displaylink
+    # displaylink
     vlc
     xclip
     xsel
