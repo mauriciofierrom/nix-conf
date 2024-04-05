@@ -22,5 +22,6 @@
     "workbench.editor.tabCloseButton" = "off";
     "window.menuBarVisibility" = "toggle";
     "workbench.editor.showTabs" = false;
+    "workbench.colorThreme" = "GitHub Dark Default";
   };
 }
