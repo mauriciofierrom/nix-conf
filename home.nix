@@ -33,5 +33,6 @@
     programs.tmux = import ./tmux.nix { inherit pkgs; };
     programs.zsh = import ./zsh.nix { inherit pkgs; };
     programs.neovim = import ./neovim.nix { inherit pkgs; };
+    programs.vscode = import ./vscode.nix { inherit pkgs; };
   };
 }
