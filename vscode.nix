@@ -20,5 +20,6 @@
     "editor.occurrencesHighlight" = false;
     "workbench.activityBar.visible" = false;
     "workbench.editor.tabCloseButton" = "off";
+    "window.menuBarVisibility" = "toggle";
   };
 }
