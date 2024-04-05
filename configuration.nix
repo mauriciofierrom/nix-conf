@@ -116,6 +116,7 @@ in
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
+    monaspace
   ];
 
   # List packages installed in system profile. To search, run:
