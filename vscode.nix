@@ -21,5 +21,6 @@
     "workbench.activityBar.visible" = false;
     "workbench.editor.tabCloseButton" = "off";
     "window.menuBarVisibility" = "toggle";
+    "workbench.editor.showTabs" = false;
   };
 }
