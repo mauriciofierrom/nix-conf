@@ -18,10 +18,14 @@
     "editor.overviewRulerBorder" = false;
     "editor.hideCursorInOverviewRuler" = true;
     "editor.occurrencesHighlight" = false;
+    "editor.tabSize" = 2;
     "workbench.activityBar.visible" = false;
     "workbench.editor.tabCloseButton" = "off";
     "window.menuBarVisibility" = "toggle";
     "workbench.editor.showTabs" = false;
     "workbench.colorTheme" = "GitHub Dark Default";
+    "workbench.editor.limit.enabled" = true;
+    "workbench.editor.limit.perEditorGroup" = true;
+    "workbench.editor.limit.value" = 1;
   };
 }
