@@ -154,6 +154,7 @@ in
     # Doom Emacs
     fd
     ripgrep
+    gparted
   ];
   services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
