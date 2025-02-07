@@ -66,6 +66,7 @@ in
   services.xserver.xkbOptions = "ctrl:swapcaps";
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  hardware.nvidia.open = true;
   hardware.nvidia.prime = {
     offload.enable = true;
     intelBusId = "PCI:0:2:0";

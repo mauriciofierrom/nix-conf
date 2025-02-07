@@ -1,6 +1,6 @@
 { pkgs, ...}: {
   mauricio = {
-    home.stateVersion = "23.11";
+    home.stateVersion = "24.11";
     # TODO: Failed to change ownership of firefox-old
     # probably because I installed it globally before
     # programs.firefox = {
