@@ -112,7 +112,7 @@ in
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users =
-    (import ./users.nix { inherit pkgs; }) // (import ./users-extra.nix { inherit pkgs; });
+    (import ./users.nix { inherit pkgs; });
 
   fonts.fonts = with pkgs; [
     (nerdfonts.override { fonts = [ "FiraCode" ]; })
@@ -162,7 +162,7 @@ in
 
   home-manager.useGlobalPkgs = true;
   home-manager.users =
-    (import ./home.nix { inherit pkgs; }) // (import ./home-extra.nix { inherit pkgs lib; });
+    (import ./home.nix { inherit pkgs; });
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
