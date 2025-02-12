@@ -10,7 +10,7 @@
     #   };
     # };
     home.sessionPath = [
-      "$HOME/.emacs.d/bin"
+      "$HOME/.config/emacs/bin"
     ];
     programs.direnv = {
       enable = true;
