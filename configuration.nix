@@ -116,6 +116,8 @@ in
     (import ./users.nix { inherit pkgs; });
 
   fonts.fonts = with pkgs; [
+    nerd-fonts.jetbrains-mono
+    nerd-fonts.fira-code
     monaspace
   ];
 
