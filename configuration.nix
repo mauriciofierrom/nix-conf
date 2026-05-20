@@ -78,7 +78,7 @@ in
   services.xserver.desktopManager.gnome.enable = true;
   services.xserver.windowManager.i3 = {
     enable = true;
-    package = pkgs.i3-gaps;
+    package = pkgs.i3;
   };
 
   services.lorri.enable = true;
@@ -116,7 +116,6 @@ in
     (import ./users.nix { inherit pkgs; });
 
   fonts.fonts = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" ]; })
     monaspace
   ];
 
@@ -131,11 +130,11 @@ in
     firefox
     silver-searcher
     chromium
-    tor-browser-bundle-bin
+    tor-browser
     htop
     curl
-    gnome.gnome-tweaks
-    gnome.gnome-keyring
+    gnome-tweaks
+    gnome-keyring
     # displaylink
     vlc
     xclip
@@ -157,6 +156,7 @@ in
     ripgrep
     gparted
     ghostty
+    anki
   ];
   services.gnome.gnome-keyring.enable  = true;
   programs.steam.enable = true;
