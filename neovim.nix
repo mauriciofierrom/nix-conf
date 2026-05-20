@@ -262,6 +262,17 @@
     cmd = { "haskell-language-server", "--lsp" },
     capabilities = capabilities
   }
+
+  -- Use rust
+  nvim_lsp["rust_analyzer"].setup {
+    settings = {
+      ['rust-analyzer'] = {
+        diagnostics = {
+          enable = false;
+        }
+      }
+    }
+  }
   EOF
 
 
